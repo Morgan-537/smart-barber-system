@@ -4,6 +4,17 @@ from flask_cors import CORS
 from app.config.settings import Config
 from app.config.db import db, migrate
 
+from app.models import (
+    User,
+    CustomerProfile,
+    Service,
+    BarberService,
+    Booking,
+    Payment,
+    Review,
+    Inventory,
+    Notification,
+)
 
 def create_app():
     app = Flask(__name__)

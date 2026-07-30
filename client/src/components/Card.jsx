@@ -7,25 +7,35 @@ const Card = ({
   className = "",
 }) => {
   return (
-    <section
-      className={`rounded-xl border border-zinc-800 bg-zinc-900 p-6 shadow-lg transition-shadow duration-300 hover:shadow-xl ${className}`}
+    <div
+      className={`
+        rounded-3xl
+        border border-violet-100
+        bg-[#FFFDFC]
+        p-8
+        shadow-sm
+        transition-all
+        duration-300
+        hover:-translate-y-2
+        hover:shadow-2xl
+        hover:border-violet-200
+        ${className}
+      `}
     >
-      {title && (
-        <h3 className="text-xl font-bold text-white">
-          {title}
-        </h3>
-      )}
+      <h3 className="text-3xl font-bold text-zinc-900">
+        {title}
+      </h3>
 
       {subtitle && (
-        <p className="mt-2 text-sm text-zinc-400">
+        <p className="mt-2 text-lg text-violet-700 font-medium">
           {subtitle}
         </p>
       )}
 
-      <div className={title || subtitle ? "mt-5" : ""}>
+      <div className="mt-6 text-zinc-600 leading-8">
         {children}
       </div>
-    </section>
+    </div>
   );
 };
 

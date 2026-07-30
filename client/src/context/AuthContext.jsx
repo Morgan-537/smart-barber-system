@@ -35,6 +35,11 @@ export function AuthProvider({ children }) {
     localStorage.setItem("access_token", accessToken);
   };
 
+  const updateUser = (updatedUser) => {
+    setUser(updatedUser);
+    localStorage.setItem("user", JSON.stringify(updatedUser));
+  };
+
   const logout = () => {
     setUser(null);
     setToken(null);
@@ -50,6 +55,7 @@ export function AuthProvider({ children }) {
         token,
         loading,
         login,
+        updateUser,
         logout,
         isAuthenticated: !!token,
       }}
@@ -58,12 +64,6 @@ export function AuthProvider({ children }) {
     </AuthContext.Provider>
   );
 }
-
-/*
-|--------------------------------------------------------------------------
-| Custom Hook
-|--------------------------------------------------------------------------
-*/
 
 export function useAuth() {
   return useContext(AuthContext);

@@ -17,3 +17,8 @@ def create_booking():
 @booking_bp.route("", methods=["GET"])
 def get_bookings():
     return BookingController.get_all()
+
+
+@booking_bp.route("/options", methods=["GET"])
+def get_booking_options():
+    return BookingController.get_options()

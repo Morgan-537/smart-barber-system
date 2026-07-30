@@ -1,29 +1,38 @@
 import React from "react";
+import clsx from "clsx";
 
 const Button = ({
   children,
-  onClick,
-  type = "button",
   variant = "primary",
+  type = "button",
   className = "",
-  disabled = false,
+  ...props
 }) => {
-  const baseStyles =
-    "rounded-lg px-4 py-2 font-medium transition duration-200 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:ring-offset-zinc-900 disabled:cursor-not-allowed disabled:opacity-50";
+  const styles = {
+    primary:
+      "bg-violet-700 text-white hover:bg-violet-800 shadow-lg shadow-violet-300/40",
 
-  const variants = {
-    primary: "bg-red-600 text-white hover:bg-red-700",
-    secondary: "bg-zinc-800 text-zinc-200 hover:bg-zinc-700",
-    danger: "bg-rose-700 text-white hover:bg-rose-800",
-    outline: "border border-zinc-700 text-zinc-300 hover:bg-zinc-800",
+    outline:
+      "border border-violet-700 text-violet-700 hover:bg-violet-50",
+
+    secondary:
+      "bg-amber-300 text-zinc-900 hover:bg-amber-400",
+
+    danger:
+      "bg-red-600 text-white hover:bg-red-700",
   };
 
   return (
     <button
       type={type}
-      onClick={onClick}
-      disabled={disabled}
-     className={`${baseStyles} ${variants[variant] || variants.primary} ${className}`}
+      className={clsx(
+        "rounded-xl px-8 py-3 font-semibold transition-all duration-300",
+        "hover:scale-105",
+        "active:scale-95",
+        styles[variant],
+        className
+      )}
+      {...props}
     >
       {children}
     </button>

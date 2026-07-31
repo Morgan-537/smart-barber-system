@@ -9,6 +9,8 @@ class Booking(BaseModel):
 
     __tablename__ = "bookings"
 
+    # If the customer is deleted, all their bookings are
+
     customer_id = db.Column(
         db.Integer,
         db.ForeignKey("users.id", ondelete="CASCADE"),

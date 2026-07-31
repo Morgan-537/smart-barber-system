@@ -9,6 +9,8 @@ class Service(BaseModel):
 
     __tablename__ = "services"
 
+    # Must be unique to prevent duplicate service entries.
+
     name = db.Column(
         db.String(100),
         unique=True,

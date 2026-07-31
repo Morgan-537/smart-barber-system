@@ -55,3 +55,6 @@ class Inventory(BaseModel):
 
     def __repr__(self):
         return f"<Inventory {self.product_name}>"
+
+
+            /* this is a comment */

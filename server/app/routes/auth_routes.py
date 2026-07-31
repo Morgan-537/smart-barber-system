@@ -22,3 +22,8 @@ def login():
 @auth_bp.route("/me", methods=["GET"])
 def me():
     return AuthController.me()
+
+
+@auth_bp.route("/me", methods=["PUT"])
+def update_me():
+    return AuthController.update_me()

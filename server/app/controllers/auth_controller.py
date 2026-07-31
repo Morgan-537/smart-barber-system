@@ -60,9 +60,27 @@ class AuthController:
         """
         Return the currently authenticated user.
         """
-        
         user_id = get_jwt_identity()
 
         response, status = AuthService.get_current_user(user_id)
+
+        return jsonify(response), status
+
+    @staticmethod
+    @jwt_required()
+    def update_me():
+        """
+        Update the currently authenticated user's profile.
+        """
+        user_id = get_jwt_identity()
+        data = request.get_json()
+
+        if not data:
+            return jsonify({
+                "success": False,
+                "message": "Request body is required."
+            }), 400
+
+        response, status = AuthService.update_current_user(user_id, data)
 
         return jsonify(response), status

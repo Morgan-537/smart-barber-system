@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f9f1ec;
+  color: #18181b;
+  font-family: Inter, system-ui, sans-serif;
+
+  /* Soft purple glow (top-left) */
+  background-image:
+    radial-gradient(
+      circle at top left,
+      rgba(168, 85, 247, 0.09),
+      transparent 38%
+    ),
+
+    /* Soft peach glow (bottom-right) */
+    radial-gradient(
+      circle at bottom right,
+      rgba(251, 146, 60, 0.10),
+      transparent 40%
+    );
+
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font: inherit;
+}
